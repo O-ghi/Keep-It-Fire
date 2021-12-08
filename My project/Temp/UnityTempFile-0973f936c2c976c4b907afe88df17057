@@ -334,5 +334,7 @@
 /define:UNITY_STANDALONE_WIN
 /define:UNITY_TEAM_LICENSE
 /define:USE_SEARCH_ENGINE_API
+Assets\RandomObstacleController.cs
 Assets\Script\CharacterMovement.cs
 Assets\Script\ObstacleController.cs
+Assets\Script\RandomObstacleController.cs
