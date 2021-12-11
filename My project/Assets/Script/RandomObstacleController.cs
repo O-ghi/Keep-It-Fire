@@ -24,9 +24,6 @@ public class RandomObstacleController : MonoBehaviour
         }
 
         timeCouting -= Time.deltaTime;
-        Debug.Log(timeCouting);
-
-
 
     }
 
