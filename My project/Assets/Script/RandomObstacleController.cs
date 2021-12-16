@@ -1,18 +1,48 @@
-using System.Collections;
-using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class RandomObstacleController : MonoBehaviour
 {
-    //parameter
+    //public parameter 
     public GameObject obstacle;
+    public GameObject bigObstacle;
     public int totalObstaclePerTurn = 10;
 
-    //value
+    //public value
     public float timeCouting = 1;
+
+    //parameter
+    GameObject scoreText;
+
+    //value
+
+    bool isCreated = false;
+    void Start()
+    {
+        scoreText = GameObject.FindGameObjectWithTag("ScoreText");
+
+    }
+
     // Update is called once per frame
     void Update()
     {
+
+        int score = int.Parse(scoreText.GetComponent<Text>().text);
+
+        if (score % 2 == 0 && score > 0)
+        {
+            if (isCreated == false)
+            {
+                randomBigObstacle();
+            }
+            isCreated = true;
+        }
+        else
+        {
+            isCreated = false;
+        }
+
+        Debug.Log(isCreated);
 
         if (timeCouting <= 0)
         {
@@ -32,5 +62,11 @@ public class RandomObstacleController : MonoBehaviour
         float randomPositionX = Random.Range(-10f, 10f);
         float randomPositionY = Random.Range(this.transform.position.y, 20f);
         Instantiate(obstacle, new Vector3(randomPositionX, randomPositionY, 0), Quaternion.identity);
+    }
+
+    void randomBigObstacle()
+    {
+        float randomPositionX = Random.Range(-10f, 10f);
+        Instantiate(bigObstacle, new Vector3(randomPositionX, this.transform.position.y + 5f), Quaternion.identity);
     }
 }
