@@ -6,10 +6,12 @@ public class RandomObstacleController : MonoBehaviour
     //public parameter 
     public GameObject obstacle;
     public GameObject bigObstacle;
-    public int totalObstaclePerTurn = 10;
+
 
     //public value
     public float timeCouting = 1;
+    public int scoreAppear = 20;
+    public int totalObstaclePerTurn = 10;
 
     //parameter
     GameObject scoreText;
@@ -17,6 +19,8 @@ public class RandomObstacleController : MonoBehaviour
     //value
 
     bool isCreated = false;
+
+
     void Start()
     {
         scoreText = GameObject.FindGameObjectWithTag("ScoreText");
@@ -29,7 +33,7 @@ public class RandomObstacleController : MonoBehaviour
 
         int score = int.Parse(scoreText.GetComponent<Text>().text);
 
-        if (score % 2 == 0 && score > 0)
+        if (score % scoreAppear == 0 && score > 0)
         {
             if (isCreated == false)
             {
