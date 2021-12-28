@@ -36,7 +36,11 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets\Script\ObstacleController.cs" />
+     <Compile Include="Assets\Script\RandomObstacleController.cs" />
      <Compile Include="Assets\Script\CharacterMovement.cs" />
+     <Compile Include="Assets\Script\score.cs" />
+     <None Include="Assets\Font\LICENSE.txt" />
     <Reference Include="UnityEngine">
         <HintPath>D:\Unity\2020.3.23f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>
