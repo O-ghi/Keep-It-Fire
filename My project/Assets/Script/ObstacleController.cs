@@ -5,13 +5,16 @@ using UnityEngine;
 public class ObstacleController : MonoBehaviour
 {
     //public parameter
-    public float destroyTime = 1f;
+    public float destroyTime;
     Transform randomPointPosition;
     bool isCollision = false;
+
     private void Start()
     {
         GameObject randomPoint = GameObject.Find("ObstaclePoint");
         randomPointPosition = randomPoint.transform;
+        int increaseValue = randomPoint.GetComponent<RandomObstacleController>().getIncreaseValue();
+        destroyTime += increaseValue;
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -24,22 +27,8 @@ public class ObstacleController : MonoBehaviour
 
         if (other.gameObject.tag.Equals("Ground"))
         {
-            if (this.gameObject.tag.Equals("BigObstacle")) //BigObstacle will coutdown to destroy
-            {
-                StartCoroutine(DestroyAfter(destroyTime));
-            }
-            else
-            {
-                Destroy(this.gameObject);
-            }
-
+            Destroy(this.gameObject);
         }
     }
 
-    IEnumerator DestroyAfter(float time)
-    {
-        yield return new WaitForSeconds(time);
-        Debug.Log("Destroy");
-        Destroy(this.gameObject);
-    }
 }
