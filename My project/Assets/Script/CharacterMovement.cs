@@ -18,8 +18,5 @@ public class CharacterMovement : MonoBehaviour
     {
         var movement = Input.GetAxisRaw("Horizontal") * Time.deltaTime * speed;
         transform.position += new Vector3(movement, 0, 0);
-
     }
-
-
 }

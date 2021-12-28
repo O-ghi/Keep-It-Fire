@@ -6,11 +6,13 @@ TagManager:
   tags:
   - Obstacle
   - Ground
+  - ScoreText
+  - BigObstacle
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - IgnoreCollision
   - Water
   - UI
   - 
